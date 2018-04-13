@@ -10,7 +10,7 @@
         "constraint_type": "less" 
     },
     { 
-        "metric_id": "fs.root.used.percent", 
+        "metric_id": "srv.fs.root.used.percent", 
         "constraint": "75", 
         "constraint_type": "less"
     },
