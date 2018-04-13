@@ -1,0 +1,2 @@
+ping.google https://google.com 10
+ping.ya https://yandex.ru 10 GET

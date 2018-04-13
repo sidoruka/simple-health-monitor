@@ -1,4 +1,5 @@
 from model.validation_config import ValidationConfig
+import datetime
 
 CURRENT_METRICS={}
 
@@ -8,6 +9,7 @@ class Metric():
         self.metric_name = metric_name
         self.value = value
         self.state = ValidationConfig.validate(self.metric_id, value)
+        self.date = datetime.datetime.now()
     
     @property
     def metric_id(self):
