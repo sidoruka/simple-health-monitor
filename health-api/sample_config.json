@@ -1,1 +1,27 @@
-[ { "metric_id": "srv.cpu", "constraint": "25", "constraint_type": "less" } ]
+[ 
+    { 
+        "metric_id": "srv.cpu.used.percent", 
+        "constraint": "75", 
+        "constraint_type": "less" 
+    },
+    { 
+        "metric_id": "srv.mem.used.percent", 
+        "constraint": "75", 
+        "constraint_type": "less" 
+    },
+    { 
+        "metric_id": "fs.root.used.percent", 
+        "constraint": "75", 
+        "constraint_type": "less"
+    },
+    { 
+        "metric_id": "srv.ping.google", 
+        "constraint": "302", 
+        "constraint_type": "eq" 
+    },
+    { 
+        "metric_id": "srv.ping.ya", 
+        "constraint": "200", 
+        "constraint_type": "eq" 
+    }
+]
