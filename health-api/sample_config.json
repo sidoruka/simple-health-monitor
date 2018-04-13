@@ -1,0 +1,1 @@
+[ { "metric_id": "srv.cpu", "constraint": "25", "constraint_type": "less" } ]
