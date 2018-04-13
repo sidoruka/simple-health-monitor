@@ -20,4 +20,4 @@ def start(verbose, port, config):
     app = Flask(__name__)
     api = Api(app)
     api.add_resource(MetricService, '/metrics')
-    app.run(debug=verbose, port=port)
+    app.run(debug=verbose, port=port, host='0.0.0.0')
