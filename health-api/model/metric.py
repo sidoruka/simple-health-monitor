@@ -1,9 +1,10 @@
 from model.validation_config import ValidationConfig
+from model.serializable import Serializable
 from datetime import datetime
 
 CURRENT_METRICS={}
 
-class Metric():
+class Metric(Serializable):
     def __init__(self, agent_name, metric_name, value):
         self.agent_name = agent_name
         self.metric_name = metric_name

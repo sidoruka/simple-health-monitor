@@ -14,7 +14,7 @@ def cli():
 @cli.command()
 @click.option('-v', '--verbose', is_flag=True)
 @click.option('-p', '--port', required=False, type=int, default=8080)
-@click.option('-c', '--config', required=False, type=str)
+@click.option('-c', '--config', required=True, type=str)
 def start(verbose, port, config):
     ValidationConfig.init_from_file(config)
     app = Flask(__name__)
