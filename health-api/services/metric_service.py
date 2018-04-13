@@ -18,4 +18,4 @@ class MetricService(Resource):
                             args['value'])
 
         Metric.create_or_update(metric_item)
-        return '', 201
+        return metric_item.metric_id, 201
