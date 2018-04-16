@@ -10,7 +10,8 @@ setup(
     install_requires=[
         'click',
         'flask',
-        'flask-restful'
+        'flask-restful',
+        'pyfcm'
     ],
     entry_points='''
         [console_scripts]
