@@ -1,12 +1,14 @@
 function log_metric {
   local METRIC_NAME=$1
   local METRIC_VALUE=$2
+
   curl -X PUT \
     "$HEALTH_API_URL" \
     -H 'content-type: application/json' \
     -d "{\"agent_name\":\"$HEALTH_SERVICE_NAME\", \"metric_name\":\"$METRIC_NAME\", \"value\": \"$METRIC_VALUE\"}" \
     --connect-timeout 5 \
-    --max-time 5
+    --max-time 5 \
+    -k
 }
 
 HEALTH_API_URL=$1
@@ -65,11 +67,19 @@ else
         _PING_METHOD="GET"
       fi
 
+      if [ -z "$HEALTH_METRIC_AUTH" ]; then
+        BEARER_HEADER=
+      else
+        BEARER_HEADER="Authorization: Bearer ${HEALTH_METRIC_AUTH}"
+      fi
+
       _PING_HTTP_CODE=$(curl -X $_PING_METHOD \
                         "$_PING_URL" \
                         --connect-timeout $_PING_TIMEOUT \
                         --max-time $_PING_TIMEOUT \
+			-H "${BEARER_HEADER}" \
                         -s \
+			-k \
                         -o /dev/null \
                         -w "%{http_code}")
 
