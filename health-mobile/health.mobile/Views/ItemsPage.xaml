@@ -2,7 +2,9 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="health.mobile.ItemsPage" Title="{Binding Title}" x:Name="BrowseItemsPage" xmlns:local="clr-namespace:health.mobile">
      <ContentPage.Resources>
         <ResourceDictionary>
-            <local:StateConverter x:Key="stateConverter" />
+            <local:StateColorConverter x:Key="stateColorConverter" />
+            <local:FailedStateColorConverter x:Key="failedStateColorConverter" />
+            <local:StateFontWeightConverter x:Key="stateFontWeightConverter" />
         </ResourceDictionary>
     </ContentPage.Resources>
     <ContentPage.Content>
@@ -31,8 +33,22 @@
                                     <ColumnDefinition Width="2*" />
                                     <ColumnDefinition Width="*" />
                                 </Grid.ColumnDefinitions>
-                                <Label TextColor="{Binding Converter={StaticResource stateConverter}, Mode=OneWay, Path=State}" Text="{Binding Name}" VerticalTextAlignment="Center" HorizontalTextAlignment="Start" FontSize="14" />
-                                <Label Grid.Column="1" Grid.RowSpan="2" Text="{Binding Value}" FontSize="14" VerticalTextAlignment="Center" HorizontalTextAlignment="End" />
+                                <Label
+                                    TextColor="{Binding Converter={StaticResource stateColorConverter}, Mode=OneWay, Path=State}"
+                                    FontAttributes="{Binding Converter={StaticResource stateFontWeightConverter}, Mode=OneWay, Path=State}"
+                                    Text="{Binding Name}"
+                                    VerticalTextAlignment="Center"
+                                    HorizontalTextAlignment="Start"
+                                    FontSize="14" />
+                                <Label
+                                    TextColor="{Binding Converter={StaticResource failedStateColorConverter}, Mode=OneWay, Path=State}"
+                                    FontAttributes="{Binding Converter={StaticResource stateFontWeightConverter}, Mode=OneWay, Path=State}"
+                                    Grid.Column="1"
+                                    Grid.RowSpan="2"
+                                    Text="{Binding Value}"
+                                    FontSize="14"
+                                    VerticalTextAlignment="Center" 
+                                    HorizontalTextAlignment="End" />
                                 <Label Grid.Row="1" Text="{Binding DateString}" FontSize="8" VerticalTextAlignment="Center" />
                             </Grid>
                         </ViewCell>

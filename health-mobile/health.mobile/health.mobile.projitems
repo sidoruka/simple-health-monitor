@@ -17,10 +17,12 @@
     <Compile Include="$(MSBuildThisFileDirectory)Services\MetricsDataStore.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\BaseViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\ItemsViewModel.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\StateConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\StateColorConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Views\ItemsPage.xaml.cs">
       <DependentUpon>ItemsPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\StateFontWeightConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\FailedStateColorConverter.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)App.xaml" />

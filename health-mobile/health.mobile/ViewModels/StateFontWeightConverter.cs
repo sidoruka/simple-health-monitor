@@ -4,16 +4,15 @@ using Xamarin.Forms;
 
 namespace health.mobile
 {
-    public class StateConverter : IValueConverter
+    public class StateFontWeightConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            if (value.ToString() == "OK") {
-                return Color.Green;
-            } else if (value.ToString() == "FAIL") {
-                return Color.Red;
+            if (value.ToString() == "FAIL")
+            {
+                return FontAttributes.Bold;
             }
-            return Color.DarkGray;
+                return FontAttributes.None;
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
