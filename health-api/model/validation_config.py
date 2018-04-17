@@ -32,7 +32,7 @@ class ValidationConfig():
                 
     @classmethod
     def validate(cls, metric_id, value):
-        if cls.INSTANCE and (len(cls.INSTANCE.validators) == 0 or metric_id not in cls.INSTANCE.validators):
+        if not cls.INSTANCE or len(cls.INSTANCE.validators) == 0 or metric_id not in cls.INSTANCE.validators:
             return 'UNKNOWN'
 
         config = cls.INSTANCE.validators[metric_id]

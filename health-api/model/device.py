@@ -1,6 +1,9 @@
 from model.serializable import Serializable
+import json
+import os
 
 CURRENT_DEVICES={}
+DEVICES_LIST_FILE_PATH='~/devices.json'
 
 class Device(Serializable):
     def __init__(self, device_id, device_name):
